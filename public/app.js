@@ -34,8 +34,8 @@
 $.ajax({
   type: 'GET',
   dataType: "json",
-  url: './airports.json',
-  data: data,
+  url: '/api/airports',
+  async: false,
   success: function(data){
     console.log(data);
   }
