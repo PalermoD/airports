@@ -1,42 +1,24 @@
-  $(function() {
-    var availableTags = [
-      "ActionScript",
-      "AppleScript",
-      "Asp",
-      "BASIC",
-      "C",
-      "C++",
-      "Clojure",
-      "COBOL",
-      "ColdFusion",
-      "Erlang",
-      "Fortran",
-      "Groovy",
-      "Haskell",
-      "Java",
-      "JavaScript",
-      "Lisp",
-      "Perl",
-      "PHP",
-      "Python",
-      "Ruby",
-      "Scala",
-      "Scheme"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-    $( "#airports" ).autocomplete({
-      source: availableTags
-    });
-  });
-
+// var data = require("json!/../airports.json");
 $.ajax({
   type: 'GET',
   dataType: "json",
   url: '/api/airports',
   async: false,
   success: function(data){
-    console.log(data);
+    var names = data.map( (airport) => {
+          return airport.name ? airport.name.toLowerCase() : '';
+      });
+
+
+  $(function() {
+    
+    $( "#tags" ).autocomplete({
+      source: names
+    });
+    $( "#airports" ).autocomplete({
+      source: names
+    });
+  });
   }
 });
+

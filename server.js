@@ -4,7 +4,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-var COMMENTS_FILE = path.join(__dirname, 'airports.json');
+var AIRPORTS_FILE = path.join(__dirname, 'airports.json');
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api/airports', function(req, res) {
-  fs.readFile(COMMENTS_FILE, function(err, data) {
+  fs.readFile(AIRPORTS_FILE, function(err, data) {
     if (err) {
       console.error(err);
       process.exit(1);
