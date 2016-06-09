@@ -1,3 +1,5 @@
+== US AIPORTS NAUTICLE MAP CALCULATOR
+
 I set up a Node server and built a simple API for my airport data. 
 
 To run the app locally just cd into the directory where you saved the application and run these commands in your command line.
@@ -9,3 +11,7 @@ then
     npm start 
 
 it should be running at localhost:3000 and the url for the api is localhost:3000/api/airports.
+
+
+You can see a live demo of the application at:
+https://mighty-anchorage-16808.herokuapp.com/
