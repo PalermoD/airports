@@ -1,8 +1,45 @@
 body {
-	background-color: black;
-	color: white;
+	margin: 0px;
 }
 
 .aiport2 {
-	margin: 20px;
+	
+	margin-top:10px; 
+	color: black;
+}
+
+h3{
+	color: white;
+}
+
+.airport1 {
+	color: black;
+	margin-top:10px; 
+}
+
+#map {
+    height: 100%;
+    float right;
+}
+
+.container {
+	float: left;
+	height: 100%;
+	width: 20%;
+	background-color: #e57900;
+	color:white;
+
+}
+
+#distance {
+	margin-top:15px; 
+	text-align: center;
+	font-family: helvetica;
+	background-color: black;
+	opacity: 0.7;
+	font-size: 15px;
+}
+
+.info {
+	margin:10px; 
 }

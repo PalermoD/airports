@@ -6,21 +6,41 @@
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="./app.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles.css">
   
 </head>
 <body>
  
-<div class="ui-widget airport1">
-  <label for="tags">From: </label>
-  <input id="tags">
-</div>
+  <div class="container">
+    <div class="ui-widget airport1">
+      <h3>From:</h3>
+      <input id="tags">
+    </div>
 
-<div class="ui-widget aiport2">
-  <label for="tags">To: </label>
-  <input id="airports">
-</div>
+    <div class="ui-widget aiport2">
+      <h3>To:</h3>
+      <input id="airports">
+    </div>
+
+    <div id="distance">
+      No Aiports selected
+    </div>
+
+    <div class="info">
+      <p>
+        Welcome to Naticle Airport Map Calculator! To use just enter two United States airports and it will plot the trip on the map as well calculate the distance in naticle miles. Enjoy!
+      </p>
+      
+    </div>
+
+  </div>
+
+<div id="map"></div>
+
+
  
- 
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANcA5jmdl_PYiffJkE0ewuT58ckav-AuA&callback=initMap"
+    async defer></script>
 </body>
 </html>
