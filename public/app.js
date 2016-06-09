@@ -1,12 +1,13 @@
-// var data = require("json!/../airports.json");
+// Global Varibles 
 var linePresent = false;
 var line;
 var lastInput;
 var lastMarker;
-
 var marker1;
 var marker2;
+var apiKey = "AIzaSyANcA5jmdl_PYiffJkE0ewuT58ckav-AuA"
 
+//Render Google Map
 var map;
 function initMap() {
  map = new google.maps.Map(document.getElementById('map'), {
@@ -15,7 +16,7 @@ function initMap() {
  });
 }
 
-var apiKey = "AIzaSyANcA5jmdl_PYiffJkE0ewuT58ckav-AuA"
+//Ajax call that handles the distance, plot points, and draws line on success 
 $.ajax({
   type: 'GET',
   dataType: "json",
@@ -118,9 +119,9 @@ source: names
 }
 });
 
+
+//Get latitude and longitude of aiports 
 var getLatLon = function(airports, name){
-
-
   var airport = airports.filter( (airport) => {
 
     var lowercased = airport.name ? airport.name.toLowerCase() : '';
@@ -137,6 +138,7 @@ var toRad = function(num) {
   return num * Math.PI / 180
 }
 
+// Caculate the distance in miles and covert to nauticles miles 
 var calculate = function(airport1, airport2){
 
   var dLat = toRad(airport2.lon - airport1.lon);
@@ -154,9 +156,11 @@ var calculate = function(airport1, airport2){
   var nauticleMiles = d * 0.868976;
 
 
-  $('#distance').text("Distance: " + Math.round(nauticleMiles) + " nauticle miles" );
+  $('#distance').text("Distance: " + Math.round(nauticleMiles) + " nautical miles" );
 }
 
+
+// place marker function for ploting the airport
 var placeMaker = function(airport){
 
  var myLatLng = {lat: Number(airport.lat), lng: Number(airport.lon)};
@@ -171,6 +175,8 @@ var placeMaker = function(airport){
  return marker;
 }
 
+
+// draw line function for drawing the trip on the map after two makers have been placed 
 var drawLine = function(airport1, airport2){
   var line = new google.maps.Polyline({
     path: [
