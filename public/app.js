@@ -16,6 +16,32 @@ function initMap() {
  });
 }
 
+var CustomGoogleMaps = (function(){
+    var googleMapsLoaded = $.Deferred(); 
+
+    var init = function(){
+        var self = this; 
+        googleMapsLoaded.done( function(){
+            self.initializeMap(); 
+        }); 
+    }
+
+   function initMap() {
+       map = new google.maps.Map(document.getElementById('map'), {
+       center: {lat: 37.0902, lng: -95.7129},
+       zoom: 4
+      });
+    }
+
+    // rest of your google maps stuff here 
+
+    return {
+        googleMapsLoaded : googleMapsLoaded,
+        init : init, 
+        initializeMap : initMap
+    }
+})(); 
+
 //Ajax call that handles the distance, plot points, and draws line on success 
 $.ajax({
   type: 'GET',
