@@ -170,7 +170,7 @@ var placeMaker = function(airport){
    position: myLatLng,
    map: map,
    animation: google.maps.Animation.DROP,
-   title: 'Hello World!'
+   title: airport.name
  });
  return marker;
 }
